@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React Native Web App",
+  "name": "React Native Web Sample",
   "icons": [
     {
       "src": "favicon.ico",
