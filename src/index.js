@@ -3,6 +3,7 @@ import { AppRegistry, StyleSheet, Text, View } from 'react-native'
 import registerServiceWorker from './registerServiceWorker';
 import UserForm from './components/UserForm';
 import colors from './components/colors';
+import './index.css';
 
 
 const styles = StyleSheet.create({

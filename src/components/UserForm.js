@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
     borderRadius: '4px',
     margin: '8px',
     padding: '8px',
-    color: colors.black
   },
   inputError: {
     borderColor: colors.error,
