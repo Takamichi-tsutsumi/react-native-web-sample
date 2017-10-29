@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     color: colors.black
+  },
+  userListContainer: {
+    padding: '12px',
   }
 });
 
@@ -40,9 +43,11 @@ class App extends Component {
       <UserForm
         onSubmit={(val) => this.setState({users: [val, ...this.state.users]})}
       />
-      <View>{
+      <View style={styles.userListContainer}>{
         this.state.users.map(user => {
-          return <View key={user.name}><Text>{`${user.name} ${user.email}`}</Text></View>
+          return <View key={user.name}>
+            <Text>{`Name: ${user.name}  Email: ${user.email}  Date: ${user.date}`}</Text>
+          </View>
         })
       }</View>
     </View>
