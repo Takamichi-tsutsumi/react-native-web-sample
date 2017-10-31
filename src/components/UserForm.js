@@ -6,7 +6,7 @@ import moment from 'moment';
 
 // react-dates import
 import 'react-dates/initialize';
-import 'react-dates/lib/css/_datepicker.css';
+import './_datepicker.css';
 import { SingleDatePicker } from 'react-dates';
 
 // custom components
@@ -35,10 +35,6 @@ const styles = StyleSheet.create({
     marginBottom: '8px',
   },
 });
-
-// render date picker
-const today = moment();
-const startDay = moment().subtract(60, 'days');
 
 
 class Form extends PureComponent {
@@ -107,7 +103,7 @@ class Form extends PureComponent {
           numberOfMonths={1}
           hideKeyboardShortcutsPanel
           withPortal
-          isOutsideRange={(date) => !date.isBetween(startDay, today, 'days', '[]') }
+          isOutsideRange={() => false }
           required
         />
           <Button title={'ADD TO LIST'} onPress={handleSubmit} />
