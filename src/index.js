@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AppRegistry, StyleSheet, Text, View } from 'react-native'
+import { AppRegistry, StyleSheet, Text, View, ScrollView } from 'react-native'
 import registerServiceWorker from './registerServiceWorker';
 import UserForm from './components/UserForm';
 import colors from './components/colors';
@@ -23,6 +23,12 @@ const styles = StyleSheet.create({
   },
   userListContainer: {
     padding: '12px',
+  },
+  listItem: {
+    padding: '12px',
+    borderBottomStyle: 'solid',
+    borderBottomWidth: '1px',
+    borderBottomColor: colors.lightgray,
   }
 });
 
@@ -43,13 +49,15 @@ class App extends Component {
       <UserForm
         onSubmit={(val) => this.setState({users: [val, ...this.state.users]})}
       />
-      <View style={styles.userListContainer}>{
-        this.state.users.map(user => {
-          return <View key={user.name}>
-            <Text>{`Name: ${user.name}  Email: ${user.email}  Date: ${user.date}`}</Text>
-          </View>
-        })
-      }</View>
+      <ScrollView style={styles.userListContainer}>
+        {
+          this.state.users.map(user => {
+            return <View key={user.name} style={styles.listItem}>
+              <Text>{`${user.name}  ${user.email}  ${user.date}`}</Text>
+            </View>
+          })
+        }
+      </ScrollView>
     </View>
   }
 }
