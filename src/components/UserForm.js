@@ -101,6 +101,7 @@ class Form extends PureComponent {
           focused={this.state.dateInputFocused}
           date={moment(values.date)}
           numberOfMonths={1}
+          displayFormat={'YYYY/MM/DD'}
           hideKeyboardShortcutsPanel
           withPortal
           isOutsideRange={() => false }
