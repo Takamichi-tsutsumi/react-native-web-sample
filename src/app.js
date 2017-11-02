@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Home from './scenes/home';
 import Feed from './scenes/feed';
+import NotFound from './scenes/notfound';
 
 export default class App extends Component {
   render() {
@@ -12,7 +13,7 @@ export default class App extends Component {
       case '/feed' || '/feed/':
         return <Feed/>;
       default:
-        return <Home/>;
+        return <NotFound/>
     }
   }
 }

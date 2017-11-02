@@ -20,6 +20,7 @@ export default class Feed extends Component {
   render() {
     return <View style={styles.container}>
       <Title text={'FEED'}/>
+      <a href='/'>Home</a>
     </View>;
   }
 }
