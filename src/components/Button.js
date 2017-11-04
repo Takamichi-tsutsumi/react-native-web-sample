@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyleSheet, TouchableOpacity, Text } from 'react-native';
-import colors from './colors';
+import React from 'react'
+import { StyleSheet, TouchableOpacity, Text } from 'react-native'
+import colors from './colors'
 
 const styles = StyleSheet.create({
   button: {
@@ -11,23 +11,20 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderColor: colors.yellow,
     borderWidth: '2px',
-    borderRadius: '8px',
+    borderRadius: '8px'
   },
   buttonText: {
     color: colors.yellow,
-    fontWeight: 'bold',
-  },
-});
+    fontWeight: 'bold'
+  }
+})
 
 const Button = props => {
   return (
-    <TouchableOpacity
-      onPress={props.onPress}
-      style={styles.button}>
-      <Text style={styles.buttonText}>{ props.title }</Text>
+    <TouchableOpacity onPress={props.onPress} style={styles.button}>
+      <Text style={styles.buttonText}>{props.title}</Text>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
-export default Button;
-
+export default Button

@@ -1,19 +1,18 @@
 {
   "extends": [
-    "airbnb",
-    "plugin:flowtype/recommended",
+    "react-app"
   ],
   "parser": "babel-eslint",
   "plugins": [
-    "flowtype",
-    "react",
-    "import",
     "jsx-a11y",
+    "import",
+    "flowtype"
   ],
   "rules": {
-    "class-methods-use-this": 0,
-    "no-use-before-define": 0,
-    "array-callback-return": 0,
-    "consistent-return": 0,
+    "quotes": [1, "single"],
+    "comma-dangle": [1, "never"],
+    "jsx-a11y/href-no-hash": 0,
+    "no-extra-semi": 1,
+    "semi": [1, "never"]
   }
 }

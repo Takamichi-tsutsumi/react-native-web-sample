@@ -7,7 +7,7 @@ const colors = {
   lightgray: '#D5D5D5',
   black: '#6F6F6F',
   error: '#FFA3A3',
-  success: '#12E012',
-};
+  success: '#12E012'
+}
 
-export default colors;
+export default colors
