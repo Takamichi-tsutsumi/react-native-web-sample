@@ -1,5 +1,3 @@
 import Navigator from './navigator';
 
-export {
-    Navigator,
-};
+export { Navigator };

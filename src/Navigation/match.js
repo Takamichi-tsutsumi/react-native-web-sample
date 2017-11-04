@@ -1,6 +1,4 @@
 // @flow
-const match = (path: string, path2: string): boolean => {
-  return path === path2;
-}
+const match = (path: string, path2: string): boolean => path === path2;
 
 export default match;

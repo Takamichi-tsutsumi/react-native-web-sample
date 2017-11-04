@@ -9,15 +9,14 @@ const StackNavigator = (routeConfigs: {}) => {
       return routeConfigs[name].screen;
     }
 
-    for (let key: string of Object.keys(routeConfigs)) {
+    for (const key: string of Object.keys(routeConfigs)) {
       if (match(pathname, routeConfigs[key].path)) {
         return routeConfigs[key].screen;
       }
     }
 
     throw new Error(`No Screen matches for the path. ${pathname}`);
-  }
-
+  };
 
   class Navigator extends Component<{}> {
     transition: Function;
@@ -45,7 +44,7 @@ const StackNavigator = (routeConfigs: {}) => {
       return React.createElement(
         getScreenForRoute(this.history.location.pathname),
         { navigation: { navigate: this.transition } },
-        null
+        null,
       );
     }
   }

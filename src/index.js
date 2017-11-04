@@ -1,4 +1,4 @@
-import { AppRegistry } from 'react-native'
+import { AppRegistry } from 'react-native';
 import Home from './scenes/home';
 import Feed from './scenes/feed';
 import registerServiceWorker from './registerServiceWorker';
@@ -16,10 +16,11 @@ const Root = Navigator({
   },
 });
 
-
 // App registration and rendering
-AppRegistry.registerComponent("MyApp", () => Root);
-AppRegistry.runApplication('MyApp', { rootTag: document.getElementById('root') });
+AppRegistry.registerComponent('MyApp', () => Root);
+AppRegistry.runApplication('MyApp', {
+  rootTag: document.getElementById('root'),
+});
 
 // Register ServiceWorker
 registerServiceWorker();
