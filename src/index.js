@@ -1,20 +1,20 @@
-import React from 'react';
 import { AppRegistry } from 'react-native'
-import createHistory from 'history/createBrowserHistory'
-import App from './app';
 import Home from './scenes/home';
 import Feed from './scenes/feed';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
+import { Navigator } from './Navigation';
 
-const history = createHistory();
-
-const Root = props => (
-  <App history={history}>
-    <Home />
-    <Feed />
-  </App>
-);
+const Root = Navigator({
+  home: {
+    path: '/',
+    screen: Home,
+  },
+  feed: {
+    path: '/feed',
+    screen: Feed,
+  },
+});
 
 
 // App registration and rendering
