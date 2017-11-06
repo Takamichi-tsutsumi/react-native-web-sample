@@ -20,6 +20,8 @@ const StackNavigator = (routeConfigs: {}) => {
 
   class Navigator extends Component<{}> {
     transition: Function
+    transitionBack: Function
+
     history: {}
 
     history = history
@@ -28,10 +30,15 @@ const StackNavigator = (routeConfigs: {}) => {
       super()
 
       this.transition = this.transition.bind(this)
+      this.transitionBack = this.transitionBack.bind(this)
     }
 
     transition(path: string): void {
       this.history.push(path)
+    }
+
+    transitionBack(): void {
+      this.history.goBack()
     }
 
     componentWillMount(): void {
@@ -43,7 +50,9 @@ const StackNavigator = (routeConfigs: {}) => {
     render() {
       return React.createElement(
         getScreenForRoute(this.history.location.pathname),
-        { navigation: { navigate: this.transition } },
+        {
+          navigation: { navigate: this.transition, goBack: this.transitionBack }
+        },
         null
       )
     }

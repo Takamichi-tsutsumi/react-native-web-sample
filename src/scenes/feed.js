@@ -22,6 +22,14 @@ export default class Feed extends Component {
         >
           Home
         </a>
+        <a
+          onClick={e => {
+            this.props.navigation.goBack()
+            e.preventDefault()
+          }}
+        >
+          Back
+        </a>
       </View>
     )
   }
