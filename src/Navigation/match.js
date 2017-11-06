@@ -1,4 +1,13 @@
 // @flow
-const match = (path: string, path2: string): boolean => path === path2
+import pathToRegexp from 'path-to-regexp'
 
-export default match
+const matchPath = (route: string, path: string): boolean => {
+  const match: ?Array<string> = pathToRegexp(route).exec(path)
+  if (match) {
+    return true
+  }
+
+  return false
+}
+
+export default matchPath
