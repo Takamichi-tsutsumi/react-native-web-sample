@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import history from './history'
 import match from './match'
 
-const StackNavigator = (routeConfigs: {}) => {
+const StackNavigator = (routeConfigs: {}, navigatorConfig: {}) => {
   const getScreenForRoute = (pathname: string, name: ?string) => {
     if (name) {
       return routeConfigs[name].screen
@@ -45,6 +45,12 @@ const StackNavigator = (routeConfigs: {}) => {
       this.history.listen((e: {}): void => {
         this.forceUpdate()
       })
+
+      const { initialRouteName } = navigatorConfig
+
+      if (initialRouteName && routeConfigs[initialRouteName]) {
+        this.transition(routeConfigs[initialRouteName].path)
+      }
     }
 
     render() {
