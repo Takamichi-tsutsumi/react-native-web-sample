@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native'
+import { VictoryBar } from 'victory'
 import { Title } from '../components'
+import colors from '../components/colors'
 
 const styles = StyleSheet.create({
   container: {
@@ -30,6 +32,11 @@ export default class Feed extends Component {
         >
           Back
         </a>
+        <VictoryBar
+          horizontal
+          style={{ data: { fill: colors.pink } }}
+          animate={{ duration: 2000, onLoad: { duration: 1000 } }}
+        />
       </View>
     )
   }
