@@ -40,6 +40,7 @@
     "react-dates": "^15.0.0",
     "react-dev-utils": "^4.1.0",
     "react-dom": "^16.0.0",
+    "react-loadable": "^5.3.1",
     "react-native-web": "^0.1.12",
     "react-navigation": "^1.0.0-beta.19",
     "react-router": "^4.2.0",
@@ -114,6 +115,7 @@
     "flow-bin": "^0.58.0",
     "prettier": "^1.7.4",
     "prettier-eslint": "^8.2.1",
-    "prettier-eslint-cli": "^4.4.0"
+    "prettier-eslint-cli": "^4.4.0",
+    "webpack-bundle-analyzer": "^2.9.1"
   }
 }

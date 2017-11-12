@@ -54,13 +54,24 @@ const StackNavigator = (routeConfigs: {}, navigatorConfig: {}) => {
     }
 
     render() {
-      return React.createElement(
-        getScreenForRoute(this.history.location.pathname),
-        {
-          navigation: { navigate: this.transition, goBack: this.transitionBack }
-        },
-        null
-      )
+      const C = getScreenForRoute(this.history.location.pathname)
+
+      if (React.isValidElement(C)) {
+        return C
+      }
+
+      if (typeof component !== 'function') {
+        return React.createElement(
+          C,
+          {
+            navigation: {
+              navigate: this.transition,
+              goBack: this.transitionBack
+            }
+          },
+          null
+        )
+      }
     }
   }
 
