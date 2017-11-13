@@ -43,6 +43,7 @@
     "react-loadable": "^5.3.1",
     "react-native-web": "^0.1.12",
     "react-navigation": "^1.0.0-beta.19",
+    "react-responsive": "^3.0.0",
     "react-router": "^4.2.0",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.4",
