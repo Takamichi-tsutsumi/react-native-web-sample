@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { StyleSheet, View } from 'react-native'
-import { VictoryBar } from 'victory'
+import { StyleSheet, View, Text } from 'react-native'
 import { Title } from '../components'
-import colors from '../components/colors'
 
 const styles = StyleSheet.create({
   container: {
@@ -12,6 +10,26 @@ const styles = StyleSheet.create({
 })
 
 export default class Feed extends Component {
+  state = {
+    items: []
+  }
+
+  constructor() {
+    super()
+
+    this.loadItems = this.loadItems.bind(this)
+  }
+
+  loadItems() {
+    fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
+      .then(res => res.json())
+      .then(data => this.setState({ items: data }))
+  }
+
+  componentDidMount() {
+    this.loadItems()
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -32,11 +50,7 @@ export default class Feed extends Component {
         >
           Back
         </a>
-        <VictoryBar
-          horizontal
-          style={{ data: { fill: colors.pink } }}
-          animate={{ duration: 2000, onLoad: { duration: 1000 } }}
-        />
+        <Text>Item Count: {this.state.items.length}</Text>
       </View>
     )
   }
