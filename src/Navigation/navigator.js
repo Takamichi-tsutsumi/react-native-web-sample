@@ -3,7 +3,10 @@ import React, { Component } from 'react'
 import history from './history'
 import match from './match'
 
-const StackNavigator = (routeConfigs: {}, navigatorConfig: {}) => {
+const StackNavigator = (
+  routeConfigs: {},
+  navigatorConfig: { initialRouteName?: string } = {}
+) => {
   const getScreenForRoute = (pathname: string, name: ?string) => {
     if (name) {
       return routeConfigs[name].screen
@@ -46,9 +49,14 @@ const StackNavigator = (routeConfigs: {}, navigatorConfig: {}) => {
         this.forceUpdate()
       })
 
+      console.log(navigatorConfig)
       const { initialRouteName } = navigatorConfig
 
-      if (initialRouteName && routeConfigs[initialRouteName]) {
+      if (
+        this.history.location.pathname === '/' &&
+        initialRouteName &&
+        routeConfigs[initialRouteName]
+      ) {
         this.transition(routeConfigs[initialRouteName].path)
       }
     }
@@ -60,18 +68,16 @@ const StackNavigator = (routeConfigs: {}, navigatorConfig: {}) => {
         return C
       }
 
-      if (typeof component !== 'function') {
-        return React.createElement(
-          C,
-          {
-            navigation: {
-              navigate: this.transition,
-              goBack: this.transitionBack
-            }
-          },
-          null
-        )
-      }
+      return React.createElement(
+        C,
+        {
+          navigation: {
+            navigate: this.transition,
+            goBack: this.transitionBack
+          }
+        },
+        null
+      )
     }
   }
 
